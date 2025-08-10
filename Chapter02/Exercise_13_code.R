@@ -1,0 +1,13 @@
+% 2.13
+> df<-read.table("m-ew6299.txt", header=FALSE)
+> Series<-ts(df$V2)
+> Acf(Series)
+> Pacf(Series)
+> AR_model<-Arima(Series,order=c(1,0,0))
+> MA_model<-Arima(Series,order=c(0,0,1))
+> summary(AR_model)
+> summary(MA_model)
+> AR_forecast<-forecast(AR_model, h=2)
+> MA_forecast<-forecast(MA_model,h=2)
+> summary(AR_forecast)
+> summary(MA_forecast)
