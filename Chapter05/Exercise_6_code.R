@@ -1,0 +1,7 @@
+setwd("C:/Users/shuimiantiancai/Desktop/IR/DataInCh5")
+df<-read.table("mmm9912-adur.txt", header=FALSE)
+library(ACDm)
+Durations<-as.vector(df$V1)
+EACD<-acdFit(durations = Durations, model="ACD", dist="exponential", order=c(1,1))
+WACD<-acdFit(durations = Durations, model="ACD", dist="weibull", order=c(1,1))
+GACD<-acdFit(durations = Durations, model="ACD", dist="gengamma", order=c(1,1))
